@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LocalLLM Finder
 
-## Getting Started
+あなたのハードウェアに最適なローカルLLMモデルを見つけるためのWebサイトです。
 
-First, run the development server:
+GPU・Apple Silicon・DGX Sparkなどのハードウェアを選択するだけで、VRAMベースのマッチングにより実行可能なモデル一覧を即座に表示します。
+
+## 主な機能
+
+- **ハードウェア選択** — 30種以上のプリセット（NVIDIA / AMD / Apple Silicon / DGX Spark / マルチGPU）
+- **モデルデータベース** — 32種以上のLLMモデル（Llama, Qwen, DeepSeek, Gemma, Mistral など）
+- **VRAMマッチング** — 3段階の動作判定（快適動作 / 動作可能 / 動作困難）
+- **フィルタ・ソート** — 用途、モデルサイズ、量子化、ライセンス、日本語対応で絞り込み
+- **モデル詳細** — VRAM必要量、ベンチマーク、レーダーチャート、セットアップ手順
+- **比較機能** — 最大4モデルの横並び比較
+
+## 開発を始める
+
+開発サーバーを起動します：
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、サイトが表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## コマンド一覧
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド | 説明 |
+|---|---|
+| `npm run dev` | 開発サーバーを起動 |
+| `npm run build` | 本番用ビルド（静的サイト生成） |
+| `npm run start` | ビルド済みサイトを起動 |
+| `npm run lint` | ESLintでコードチェック |
 
-## Learn More
+## 技術スタック
 
-To learn more about Next.js, take a look at the following resources:
+- **フレームワーク**: Next.js 16 (App Router, 静的エクスポート)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS v4
+- **チャート**: Recharts
+- **アイコン**: Lucide React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## デプロイ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+静的サイトとして出力されるため、以下のサービスで無料ホスティングできます：
 
-## Deploy on Vercel
+- [Vercel](https://vercel.com)
+- [Cloudflare Pages](https://pages.cloudflare.com)
+- [GitHub Pages](https://pages.github.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+# out/ ディレクトリに静的ファイルが生成されます
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## データの更新
+
+新しいモデルやハードウェアを追加するには、以下のファイルを編集してください：
+
+- **モデル追加**: `src/data/models.ts`
+- **ハードウェア追加**: `src/data/hardware.ts`
+
+型定義は `src/types/index.ts` にあります。
