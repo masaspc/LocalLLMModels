@@ -9,6 +9,7 @@ const navItems = [
   { href: "/models", label: "モデル一覧" },
   { href: "/hardware", label: "ハードウェア" },
   { href: "/compare", label: "比較" },
+  { href: "/guide", label: "入門ガイド" },
 ];
 
 export default function Header() {
