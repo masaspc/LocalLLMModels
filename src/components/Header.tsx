@@ -6,6 +6,7 @@ import { Menu, X, Cpu } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "ホーム" },
+  { href: "/recommended", label: "おすすめ5選" },
   { href: "/models", label: "モデル一覧" },
   { href: "/hardware", label: "ハードウェア" },
   { href: "/compare", label: "比較" },

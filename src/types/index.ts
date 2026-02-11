@@ -80,6 +80,7 @@ export interface LLMModel {
   benchmarks: Benchmarks;
   ratings: Ratings;
   quickStart: QuickStart;
+  description: string;
   notes: string;
 }
 

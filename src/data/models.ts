@@ -23,6 +23,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.34 },
     ratings: { overall: 2, coding: 1, reasoning: 2, creative: 2, multilingual: 2 },
     quickStart: { ollama: "ollama run llama3.2:1b" },
+    description: "MetaのLlama 3.2シリーズの最小モデル。わずか1Bパラメータながら128Kのロングコンテキストに対応しており、テキスト要約や簡単な分類タスクに利用できます。モデルサイズが非常に小さいため、Raspberry PiなどのエッジデバイスやIoT機器でも動作可能。ローカルLLMの動作確認やプロトタイピングの第一歩として最適です。ただし日本語能力は限定的で、英語中心のタスクに向いています。",
     notes: "超軽量モデル。エッジデバイスやテスト用途に",
   },
   {
@@ -46,6 +47,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.42 },
     ratings: { overall: 3, coding: 2, reasoning: 2, creative: 2, multilingual: 3 },
     quickStart: { ollama: "ollama run llama3.2:3b" },
+    description: "Llama 3.2の3Bモデルは、軽量ながらも実用的なレスポンスを返せる「使えるミニマムライン」のモデルです。テキスト生成、要約、簡単なQ&Aなどシンプルなタスクであれば十分に対応可能。128Kコンテキストにより長文入力にも対応します。VRAM 2GB程度から動作するため、エントリーレベルのGPUやCPUのみの環境でも利用できます。Llamaファミリーの入門モデルとして、またリソースの限られたサーバーでの運用にも適しています。",
     notes: "軽量だが実用的。シンプルなタスクに",
   },
   {
@@ -69,6 +71,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.55, humanEval: 0.62 },
     ratings: { overall: 4, coding: 3, reasoning: 3, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run llama3.3:8b" },
+    description: "Llama 3.3 8Bは、MetaがLlamaシリーズの最新世代として投入した8Bパラメータモデルです。前世代のLlama 3.1 8Bから大幅に性能が向上し、コーディング支援、多言語対応、指示追従能力が改善されています。128Kの長文コンテキストに対応し、Q4量子化であれば6GB程度のVRAMで動作するため、RTX 3060やRTX 4060といったミドルレンジGPUで快適に利用可能。ローカルLLMの「コスパ最強」ゾーンに位置し、初心者からの入門にも最適です。日本語対応も良好で、日常会話や文書作成に十分使えます。",
     notes: "バランスの良い中型モデル。コスパ重視の方に",
   },
   {
@@ -92,6 +95,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.70, humanEval: 0.78, mathScore: 0.73 },
     ratings: { overall: 5, coding: 4, reasoning: 4, creative: 4, multilingual: 4 },
     quickStart: { ollama: "ollama run llama3.3:70b" },
+    description: "Llama 3.3 70Bは、オープンソースLLMの中でトップクラスの性能を持つフラッグシップモデルです。MMLU-Pro 70%、HumanEval 78%という高いベンチマークスコアを記録し、GPT-4に匹敵する性能を無料で利用できる点が最大の魅力です。コーディング、推論、創作、多言語対応のすべてにおいて高いレベルを発揮します。Q4量子化でも40GB以上のVRAMが必要なため、RTX 4090（24GB）では厳しく、RTX PRO 6000やA100などプロフェッショナルGPU、またはApple Silicon搭載のMac Studioが必要です。商用利用可能なLlama Licenseで提供されており、企業でのプロダクション利用にも適しています。",
     notes: "オープンソース最高峰クラス。GPT-4レベルの性能",
   },
   {
@@ -116,6 +120,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.74, humanEval: 0.81 },
     ratings: { overall: 5, coding: 4, reasoning: 5, creative: 4, multilingual: 5 },
     quickStart: { ollama: "ollama run llama4-scout" },
+    description: "Llama 4 Scoutは、MetaがLlama 4世代で初めて採用したMixture of Experts（MoE）アーキテクチャのモデルです。総パラメータ数は109Bですが、推論時に活性化されるのは17Bのみで、メモリ効率と推論速度のバランスに優れています。最大512Kトークンという超ロングコンテキストに対応し、大量の文書処理やコードベース全体の分析に威力を発揮します。MoEモデルのため全パラメータのロードが必要でVRAMは大きめですが、活性パラメータが少ないため推論速度は高速です。日本語を含む多言語にも強く、次世代の効率的LLMアーキテクチャの先駆けとなるモデルです。",
     notes: "MoEアーキテクチャ。512Kコンテキスト対応。活性パラメータ17Bで効率的",
   },
   {
@@ -140,6 +145,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.78, humanEval: 0.85 },
     ratings: { overall: 5, coding: 5, reasoning: 5, creative: 5, multilingual: 5 },
     quickStart: {},
+    description: "Llama 4 Maverickは、Llamaシリーズ最大の400Bパラメータ（活性17B）を持つMoEモデルです。驚異的な1Mトークン（約100万トークン）のコンテキスト長を誇り、書籍全体やプロジェクト全体を一度に処理できます。コーディング、推論、クリエイティブ、多言語のすべてで最高レベルの評価を獲得。ただしFP16では800GBものVRAMが必要で、Q4でも220GB以上が必要なため、DGX SparkのマルチGPU構成やA100/H100のクラスタ環境でのみ実用的です。最先端のAI研究やエンタープライズ用途に適した究極のモデルです。",
     notes: "Llama 4最大モデル。1Mコンテキスト。非常に大きなVRAMが必要",
   },
   // ---- Qwen 3 Family ----
@@ -164,6 +170,7 @@ export const modelList: LLMModel[] = [
     benchmarks: {},
     ratings: { overall: 1, coding: 1, reasoning: 1, creative: 1, multilingual: 2 },
     quickStart: { ollama: "ollama run qwen3:0.6b" },
+    description: "Alibaba（阿里巴巴）が開発するQwen3シリーズの最小モデル。0.6Bパラメータと極めてコンパクトで、VRAMが1GB未満でも動作します。テスト環境での動作確認や、組み込みシステムへのLLM統合の検証用途に最適。Qwenシリーズは中国語と日本語を含む多言語トレーニングが特徴で、この小さなサイズでも基本的な多言語対応が備わっています。Apache 2.0ライセンスで商用利用も完全に自由です。",
     notes: "最小サイズ。組み込み・テスト用",
   },
   {
@@ -187,6 +194,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.48, humanEval: 0.55 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run qwen3:4b" },
+    description: "Qwen3 4Bは、4Bパラメータクラスの中でトップレベルの性能を持つモデルです。Alibaba独自の大規模多言語コーパスで訓練されており、日本語の理解・生成能力が同サイズの他モデルと比較して優れています。コーディング支援にも対応し、Pythonやjavascriptの簡単なコード生成が可能。Apache 2.0ライセンスで完全に商用利用可能なため、企業の小規模チャットボットやFAQシステムの構築にも安心して使えます。VRAM 4GB程度で動作するため、GTX 1650やM1 MacBookでも利用可能です。",
     notes: "小型ながら高性能。日本語対応も良好",
   },
   {
@@ -210,6 +218,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.57, humanEval: 0.68 },
     ratings: { overall: 4, coding: 4, reasoning: 3, creative: 3, multilingual: 5 },
     quickStart: { ollama: "ollama run qwen3:8b" },
+    description: "Qwen3 8Bは、ローカルLLMにおける「日本語最強クラス」の8Bモデルです。Alibabaの大規模な日本語データセットを活用した訓練により、日本語の自然な文章生成、敬語の使い分け、ビジネス文書の作成において非常に高い品質を発揮します。コーディング（HumanEval 68%）や推論タスクでも優秀な成績を収めており、サイズ対性能比は業界トップクラスです。Q4量子化で6GB程度のVRAMがあれば快適に動作し、RTX 3060や4060で十分に利用可能。日本語中心の業務でローカルLLMを導入するなら、最初に試すべきモデルです。",
     notes: "サイズ対性能比が優秀。日本語に強い",
   },
   {
@@ -233,6 +242,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.63, humanEval: 0.74 },
     ratings: { overall: 4, coding: 4, reasoning: 4, creative: 3, multilingual: 5 },
     quickStart: { ollama: "ollama run qwen3:14b" },
+    description: "Qwen3 14Bは、8Bモデルからさらに性能を引き上げた中型モデルです。MMLU-Pro 63%、HumanEval 74%と、14Bクラスで最高水準のスコアを記録。特に日本語能力は「◎（excellent）」評価で、長文のビジネスレポート作成、技術文書の翻訳、複雑な日本語の要約タスクで高い精度を発揮します。コーディング能力も高く、複数ファイルにまたがるコード理解や中規模のリファクタリング提案が可能。Q4量子化で10GB程度のVRAMが必要なため、RTX 4060 Ti (16GB)やRTX 3090で快適に動作します。プロフェッショナルな業務用途にも耐える信頼性があります。",
     notes: "14Bでトップクラスの性能。日本語◎",
   },
   {
@@ -256,6 +266,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.69, humanEval: 0.80, mathScore: 0.72 },
     ratings: { overall: 5, coding: 5, reasoning: 4, creative: 4, multilingual: 5 },
     quickStart: { ollama: "ollama run qwen3:32b" },
+    description: "Qwen3 32Bは、Qwen3シリーズの「スイートスポット」として位置づけられるモデルです。MMLU-Pro 69%、HumanEval 80%、MATH 72%と、すべてのベンチマークで高水準を達成。特にコーディング能力はLlama 3.3 70Bに迫るレベルで、半分のパラメータ数でありながら実用的なコード生成・レビュー・デバッグ支援が可能です。日本語は「◎」評価で、技術ドキュメントの生成、議事録の要約、カスタマーサポート対応など幅広い業務に対応。Q4量子化で18GB、RTX 4090（24GB）で快適に動作するため、ハイエンドコンシューマGPUで最高クラスの性能が得られます。コスパと性能のバランスを求めるユーザーに最もおすすめのモデルです。",
     notes: "Qwen3のスイートスポット。コーディングと日本語に特に強い",
   },
   {
@@ -280,6 +291,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.52, humanEval: 0.60 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run qwen3:30b-a3b" },
+    description: "Qwen3 30B-A3Bは、Qwen3シリーズのMoE（Mixture of Experts）バリアントです。総パラメータ30Bに対して推論時の活性パラメータはわずか3Bで、Denseの3Bモデル並みの推論速度を実現しつつ、30Bの知識量を活かした高品質な出力が特徴です。メモリ上には全パラメータをロードする必要がありますが、推論速度は非常に高速で、リアルタイムチャットボットやインタラクティブなアプリケーションに最適。Apache 2.0ライセンスで商用利用も自由。MoEアーキテクチャの効率性を体験したい方に最適な入門モデルです。",
     notes: "MoEモデル。総パラメータ30Bだが活性3Bで軽量推論",
   },
   {
@@ -304,6 +316,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.76, humanEval: 0.85, mathScore: 0.80 },
     ratings: { overall: 5, coding: 5, reasoning: 5, creative: 5, multilingual: 5 },
     quickStart: { ollama: "ollama run qwen3:235b-a22b" },
+    description: "Qwen3 235B-A22Bは、Qwen3シリーズのフラッグシップMoEモデルです。総パラメータ235B、活性パラメータ22Bという構成で、GPT-4やClaude 3.5に匹敵するフロンティアクラスの性能を発揮します。MMLU-Pro 76%、HumanEval 85%、MATH 80%と全ベンチマークで最高レベルを記録。コーディング、推論、クリエイティブ、多言語のすべてで5つ星評価を獲得した万能モデルです。エージェント機能にも対応し、ツール呼び出しや複雑なマルチステップタスクをこなせます。Q4でも130GBのVRAMが必要なため、DGX Sparkやマルチ GPU構成が前提ですが、その性能はクラウドAPIの代替として十分な価値があります。",
     notes: "Qwen3最大モデル。フロンティアクラスの性能",
   },
   // ---- DeepSeek Family ----
@@ -328,6 +341,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.35, mathScore: 0.55 },
     ratings: { overall: 2, coding: 2, reasoning: 3, creative: 1, multilingual: 2 },
     quickStart: { ollama: "ollama run deepseek-r1:1.5b" },
+    description: "DeepSeek R1 1.5Bは、DeepSeek R1の推論能力を小型モデルに蒸留（distillation）した軽量版です。Chain-of-Thought（思考の連鎖）推論を内蔵しており、ステップバイステップの論理的思考で問題を解決します。特に数学的推論に強く、MATH 55%というスコアは1.5Bサイズとしては驚異的。MIT Licenseで完全にオープンソースかつ商用利用可能です。VRAMが2GB程度あれば動作するため、非常に手軽に「考えるAI」を体験できます。英語と中国語が主な対応言語で、日本語対応は限定的です。",
     notes: "推論特化の蒸留モデル。軽量で数学に強い",
   },
   {
@@ -351,6 +365,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.50, humanEval: 0.60, mathScore: 0.68 },
     ratings: { overall: 3, coding: 3, reasoning: 4, creative: 2, multilingual: 3 },
     quickStart: { ollama: "ollama run deepseek-r1:7b" },
+    description: "DeepSeek R1 7Bは、推論特化型の蒸留モデルとして非常に人気の高いモデルです。7Bパラメータながらも、Chain-of-Thoughtによる段階的推論で複雑な数学問題（MATH 68%）やコーディングタスク（HumanEval 60%）に対応できます。推論過程を「<think>」タグ内に展開し、ユーザーが思考プロセスを確認できる透明性の高さも特徴。MIT Licenseで商用利用が完全に自由です。Q4量子化でVRAM 6GB程度から動作するため、ミドルレンジGPUで「考えるAI」を気軽に体験でき、教育や研究目的にも最適です。",
     notes: "推論特化。Chain-of-Thoughtに強い",
   },
   {
@@ -374,6 +389,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.60, humanEval: 0.70, mathScore: 0.75 },
     ratings: { overall: 4, coding: 4, reasoning: 5, creative: 3, multilingual: 3 },
     quickStart: { ollama: "ollama run deepseek-r1:14b" },
+    description: "DeepSeek R1 14Bは、推論特化型モデルの中で最もバランスの取れたサイズです。MMLU-Pro 60%、HumanEval 70%、MATH 75%と、14Bパラメータで非常に高い推論能力を持ち、特に数学的推論では同サイズの汎用モデルを大幅に上回ります。Qwen2.5-14Bをベースに蒸留されており、日本語対応も良好。Q4量子化で10GBのVRAMで動作するため、RTX 4060 Ti (16GB)で快適に利用可能です。コーディング支援、数学の問題解決、論理パズル、データ分析の推論サポートなど、「考える力」が求められるタスクに最適な選択肢です。",
     notes: "14Bサイズで優秀な推論能力",
   },
   {
@@ -397,6 +413,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.67, humanEval: 0.76, mathScore: 0.80 },
     ratings: { overall: 4, coding: 4, reasoning: 5, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run deepseek-r1:32b" },
+    description: "DeepSeek R1 32Bは、ローカルで実行可能な推論モデルの中で最もおすすめのモデルの一つです。MATH 80%という極めて高い数学スコアを記録し、大学レベルの数学問題や統計分析に対応可能。HumanEval 76%のコーディング能力も備え、アルゴリズムの設計からデバッグまで幅広くカバーします。Qwen2.5-32Bをベースとした蒸留モデルのため、汎用的なチャットタスクにも対応できる実用性の高さが魅力。Q4量子化で18-22GB程度のVRAMが必要で、RTX 4090（24GB）でも動作可能です。MIT Licenseで完全にオープンソースかつ商用利用可能な点も大きなアドバンテージです。",
     notes: "推論特化の32B。数学・コーディングに非常に強い",
   },
   {
@@ -420,6 +437,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.72, humanEval: 0.82, mathScore: 0.85 },
     ratings: { overall: 5, coding: 5, reasoning: 5, creative: 4, multilingual: 4 },
     quickStart: { ollama: "ollama run deepseek-r1:70b" },
+    description: "DeepSeek R1 70Bは、推論特化型蒸留モデルの最大サイズで、GPT-4oに匹敵する推論能力を持つ「考えるAI」です。MATH 85%、HumanEval 82%、MMLU-Pro 72%と、全ベンチマークで最高レベルを記録。複雑な数学的証明、高度なコーディング課題、科学論文の分析などハイレベルなタスクに対応します。Llama 3.1 70Bをベースとした蒸留により、推論能力に加えて汎用的な対話能力も高水準。Q4量子化で40GB以上のVRAMが必要なため、プロフェッショナルGPUまたはApple Silicon（M2 Ultra以上）が推奨です。MIT Licenseで商用利用可能なため、企業の高度な意思決定支援システムにも採用できます。",
     notes: "推論性能トップクラス。GPT-4oに匹敵",
   },
   {
@@ -444,6 +462,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.75, humanEval: 0.84 },
     ratings: { overall: 5, coding: 5, reasoning: 5, creative: 4, multilingual: 5 },
     quickStart: {},
+    description: "DeepSeek V3は、DeepSeekの汎用フラッグシップモデルで、671Bパラメータ（活性37B）のMoEアーキテクチャを採用しています。GPT-4 Turboに匹敵する総合性能を持ち、コーディング、推論、クリエイティブ、多言語対応のすべてで最高レベル。128Kコンテキスト長で長文処理にも対応し、R1のような推論特化ではなく汎用的にあらゆるタスクをこなせる点が特徴です。FP16で1.3TB以上のVRAMが必要で、Q4でも370GBが必要なため、複数のA100/H100やDGX SparkのマルチGPU構成が必須。エンタープライズ向けのオンプレミスAI基盤として、クラウドAPIに依存せずに最高レベルの生成AIを利用したい組織に最適です。",
     notes: "671B MoE。非常に大きなVRAMが必要。マルチGPU必須",
   },
   // ---- Gemma 3 Family ----
@@ -468,6 +487,7 @@ export const modelList: LLMModel[] = [
     benchmarks: {},
     ratings: { overall: 2, coding: 1, reasoning: 1, creative: 2, multilingual: 2 },
     quickStart: { ollama: "ollama run gemma3:1b" },
+    description: "Googleが開発するGemma 3シリーズの最小モデル。Google内部の大規模言語モデル技術をベースに開発されており、1Bパラメータながら基本的なテキスト理解・生成が可能です。Googleの研究で培われた効率的なアーキテクチャにより、超低リソース環境でもスムーズに動作します。エッジAIのプロトタイピングやモバイルアプリへのLLM統合テスト、教育用途での言語モデル学習に最適。商用利用可能なGemma Licenseで提供されています。",
     notes: "超軽量Gemma。エッジ用途",
   },
   {
@@ -491,6 +511,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.46 },
     ratings: { overall: 3, coding: 2, reasoning: 3, creative: 3, multilingual: 3 },
     quickStart: { ollama: "ollama run gemma3:4b" },
+    description: "Gemma 3 4Bは、Googleが提供する小型でバランスの良いモデルです。128Kという長大なコンテキスト長が最大の特徴で、4Bパラメータクラスとしては異例のロングコンテキスト対応を実現しています。これにより、長文ドキュメントの要約や大量のテキスト処理がスムーズに行えます。多言語対応も良好で、日本語を含む幅広い言語でのタスクに対応。VRAM 4GB程度で動作するため、エントリーレベルのGPUでも利用可能です。Google品質のモデルを低コストで試したい方におすすめです。",
     notes: "128Kコンテキスト対応。バランスの良い小型モデル",
   },
   {
@@ -514,6 +535,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.58, humanEval: 0.65 },
     ratings: { overall: 4, coding: 3, reasoning: 4, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run gemma3:12b" },
+    description: "Gemma 3 12Bは、Googleの技術力を凝縮した中型モデルです。テキストだけでなく画像の理解にも対応するマルチモーダル機能を備えており、画像の説明生成やビジュアルQ&Aが可能（対応ツール経由）。128Kコンテキスト長で長文処理にも強く、コーディング支援（HumanEval 65%）も実用レベルです。Q4量子化で7-9GB程度のVRAMで動作し、RTX 3060 12GBやM2 MacBook Proで快適に利用できます。Googleの安全性フィルタリングが組み込まれており、商用アプリケーションでの利用にも安心です。",
     notes: "Google品質の12B。マルチモーダル対応",
   },
   {
@@ -537,6 +559,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.65, humanEval: 0.72 },
     ratings: { overall: 4, coding: 4, reasoning: 4, creative: 4, multilingual: 4 },
     quickStart: { ollama: "ollama run gemma3:27b" },
+    description: "Gemma 3 27Bは、Gemmaシリーズの最大モデルで、Google品質の高性能を手頃なサイズで提供します。MMLU-Pro 65%、HumanEval 72%と、コーディングと推論の両方で高いスコアを記録。128Kコンテキスト長により大量の情報を一度に処理でき、RAGシステムとの組み合わせにも適しています。マルチモーダル対応で画像理解も可能。Q4量子化で15-19GB程度のVRAMで動作するため、RTX 4090（24GB）で快適に利用できるサイズ感が魅力です。Llamaよりも控えめなサイズながら実用的な性能を発揮し、Google製モデルの品質と安定性を重視する方に最適です。",
     notes: "Gemma最大。コスパ良好な高性能モデル",
   },
   // ---- Mistral Family ----
@@ -561,6 +584,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.48, humanEval: 0.55 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 3 },
     quickStart: { ollama: "ollama run mistral:7b" },
+    description: "Mistral 7Bは、フランスのMistral AIが開発したローカルLLMの「定番モデル」です。2023年の登場以来、小型モデルの性能限界を大幅に引き上げた先駆的存在で、現在もv0.3として活発にアップデートされています。Sliding Window AttentionやGrouped Query Attentionなど効率的なアーキテクチャにより、7Bパラメータとは思えない高い応答品質を実現。Apache 2.0ライセンスで商用利用が完全に自由なため、スタートアップや個人開発者のプロダクトに安心して組み込めます。日本語対応はそこそこですが、英語タスクでは非常に安定したパフォーマンスを発揮します。",
     notes: "定番の7Bモデル。Apache 2.0で商用利用自由",
   },
   {
@@ -584,6 +608,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.66, humanEval: 0.73 },
     ratings: { overall: 4, coding: 4, reasoning: 4, creative: 4, multilingual: 4 },
     quickStart: { ollama: "ollama run mistral-small:24b" },
+    description: "Mistral Small 3.1 24Bは、Mistral AIの最新小型モデルで、「小さいけど強い」を体現するモデルです。24Bパラメータで128Kコンテキスト長に対応し、MMLU-Pro 66%、HumanEval 73%と中型モデルとしては最高クラスの性能。Apache 2.0ライセンスで商用利用完全自由という点が大きな強みで、企業のプロダクション環境にそのまま採用できます。バランスの良さが際立ち、コーディング、推論、クリエイティブ、多言語のすべてで安定した4つ星評価。Q4量子化で14-17GB程度のVRAMで動作し、RTX 4090で快適に動きます。Gemma 27Bと並ぶ「20-30Bクラスのベストチョイス」です。",
     notes: "128Kコンテキスト。Apache 2.0。非常にバランスが良い",
   },
   {
@@ -607,6 +632,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.73, humanEval: 0.82 },
     ratings: { overall: 5, coding: 5, reasoning: 5, creative: 4, multilingual: 5 },
     quickStart: { ollama: "ollama run mistral-large:123b" },
+    description: "Mistral Large 3 123Bは、Mistral AIのフラッグシップモデルで、欧州発のオープンAIモデルとして最高峰の性能を誇ります。MMLU-Pro 73%、HumanEval 82%と、Llama 3.3 70Bを上回るベンチマークスコアを記録。128Kコンテキスト長でエージェント機能にも対応し、複雑なマルチステップタスクや関数呼び出しをこなします。フランス語を含む欧州言語の対応が特に強い点が特徴的。ただしMistral Research Licenseのため商用利用は不可で、研究・評価目的での利用に限定されます。Q4量子化で68GB以上のVRAMが必要で、プロフェッショナルGPUが必須です。",
     notes: "Mistral最高峰。研究ライセンス（商用不可）",
   },
   // ---- Phi-4 Family ----
@@ -631,6 +657,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.62, humanEval: 0.75, mathScore: 0.78 },
     ratings: { overall: 4, coding: 4, reasoning: 5, creative: 3, multilingual: 2 },
     quickStart: { ollama: "ollama run phi4:14b" },
+    description: "Phi-4 14Bは、MicrosoftのPhiシリーズ最新モデルで、「小さくても賢い」をコンセプトに設計されたモデルです。特に数学（MATH 78%）と推論能力に秀でており、14Bパラメータで大型モデルに匹敵する論理的思考力を発揮します。HumanEval 75%のコーディング能力も高く、アルゴリズム問題やデータサイエンス関連のコード生成に強みを持ちます。MIT Licenseで完全オープンソースかつ商用利用自由という最も開放的なライセンス形態。コンテキスト長は16Kとやや短めで、日本語対応も限定的ですが、英語での数学・推論・コーディングタスクに集中するなら最高のコスパを提供するモデルです。",
     notes: "数学と推論に特化。MIT License。日本語は弱め",
   },
   // ---- NVIDIA Nemotron ----
@@ -655,6 +682,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.53, humanEval: 0.62 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 2 },
     quickStart: { ollama: "ollama run nemotron:8b" },
+    description: "Nemotron 8Bは、NVIDIAが自社開発した8Bパラメータモデルです。NVIDIA TensorRT-LLM（TRT-LLM）との深い最適化が施されており、NVIDIA GPU上で最大限のスループットを引き出せるのが最大の強み。CUDAベースの高速推論により、同サイズの他モデルと比較して推論速度で優位性があります。汎用的なタスクとコーディング支援に対応し、NVIDIAエコシステムとの親和性を重視するユーザーに最適です。コンテキスト長は8Kとやや短めですが、安定した動作と高い推論効率で信頼性の高い選択肢です。",
     notes: "NVIDIA製。TRT-LLMとの相性が良い",
   },
   {
@@ -678,6 +706,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.68, humanEval: 0.76 },
     ratings: { overall: 4, coding: 4, reasoning: 4, creative: 3, multilingual: 3 },
     quickStart: { ollama: "ollama run nemotron:51b" },
+    description: "Nemotron 51Bは、NVIDIAのDGX Sparkのために設計された大型モデルです。128Kコンテキスト長に対応し、MMLU-Pro 68%、HumanEval 76%と高い性能を発揮。NVIDIAのTensorRT-LLMで最適化されたモデルウェイトが提供されており、DGX Spark上では最高レベルの推論速度を実現します。DGX SparkのGB10搭載128GB統合メモリを活用すれば、Q8でも快適に動作し、FP16でも動作可能です。コーディング支援、ビジネス文書生成、データ分析など幅広い業務タスクに対応し、NVIDIAハードウェアとの組み合わせで最高の体験を得られる「NVIDIA純正」のAIモデルです。",
     notes: "NVIDIA製大型モデル。DGX Sparkに最適化",
   },
   // ---- Command R+ ----
@@ -702,6 +731,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.58 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run command-r:35b" },
+    description: "Command R 35Bは、カナダのCohere社がRAG（検索拡張生成）のために特別に設計したモデルです。128Kコンテキスト長により大量のドキュメントを一度に処理でき、検索結果から正確な回答を生成する「引用付き回答」機能が組み込まれています。RAGパイプラインとの統合が容易で、社内ナレッジベースやFAQシステムの構築に最適。10言語以上の多言語に対応し、日本語の理解・生成も良好です。CC-BY-NCライセンスのため商用利用には制限がありますが、研究・教育・個人利用では自由に使えます。RAG専用のローカルLLMを探している方に最もおすすめのモデルです。",
     notes: "RAGに特化。128Kコンテキストで長文対応",
   },
   {
@@ -725,6 +755,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.65, humanEval: 0.70 },
     ratings: { overall: 4, coding: 3, reasoning: 4, creative: 4, multilingual: 5 },
     quickStart: { ollama: "ollama run command-r-plus:104b" },
+    description: "Command R+ 104Bは、CohereのフラッグシップRAGモデルで、大規模な企業向けナレッジ管理システムを構築するために設計されています。104Bパラメータの大型モデルならではの深い理解力と、128Kコンテキスト長による大量ドキュメント処理能力を兼ね備えます。RAG機能に加えてエージェント機能も搭載し、ツール呼び出しやマルチステップのタスク遂行が可能。多言語対応は5つ星で、日本語を含む23言語以上に対応しています。CC-BY-NCライセンスのため商用利用には制約がありますが、社内の研究開発やPoC（概念実証）に最適な選択肢です。",
     notes: "RAG・エージェント向け大型モデル。多言語に強い",
   },
   // ---- GLM-4 ----
@@ -749,6 +780,7 @@ export const modelList: LLMModel[] = [
     benchmarks: { mmluPro: 0.52 },
     ratings: { overall: 3, coding: 3, reasoning: 3, creative: 3, multilingual: 4 },
     quickStart: { ollama: "ollama run glm4:9b" },
+    description: "GLM-4 9Bは、中国の清華大学発のスタートアップZhipu AIが開発したモデルです。中国語と日本語を含む東アジア言語の処理に特に強く、128Kコンテキスト長で長文の中国語・日本語ドキュメントを効率的に処理できます。独自のGLMアーキテクチャ（General Language Model）を採用しており、従来のGPT系アーキテクチャとは異なるアプローチで言語理解を行います。9Bパラメータと手頃なサイズながら、多言語対応は4つ星の高評価。中国語・日本語のバイリンガルタスクや、東アジア市場向けアプリケーションの開発に最適なモデルです。",
     notes: "中国語・日本語に強い。128Kコンテキスト",
   },
 ];

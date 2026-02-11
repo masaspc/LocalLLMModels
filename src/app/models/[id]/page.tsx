@@ -73,6 +73,14 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ id
         ))}
       </div>
 
+      {/* Description */}
+      {model.description && (
+        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+          <h2 className="text-lg font-bold text-gray-900 mb-3">モデル概要</h2>
+          <p className="text-sm text-gray-700 leading-relaxed">{model.description}</p>
+        </div>
+      )}
+
       {/* Notes */}
       {model.notes && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
