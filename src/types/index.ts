@@ -95,6 +95,7 @@ export interface Hardware {
   priceRange: string;
   multiGpuSupport: boolean;
   unifiedMemory: boolean;
+  description: string;
   notes: string;
 }
 

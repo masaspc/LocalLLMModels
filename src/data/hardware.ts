@@ -13,6 +13,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$380-430",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "NVIDIAのAda Lovelaceアーキテクチャを搭載したミドルレンジGPU。8GBのGDDR6メモリは、Qwen3 8BやLlama 3.3 8BなどのQ4量子化モデルを動作させるのに十分な容量です。消費電力160Wと省電力で、追加の電源ユニット交換なしで既存のPCに導入しやすい点が魅力。ローカルLLMを初めて試す方にとって最もコストパフォーマンスの高い選択肢の一つです。ただしVRAM 8GBの制約から、14B以上のモデルやFP16での実行は困難です。",
     notes: "エントリーレベル。小型モデルのQ4量子化に最適",
   },
   {
@@ -26,6 +27,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$450-500",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "RTX 4060 Tiの16GB版で、8GB版と比較してVRAMが倍増しています。この追加VRAMにより、Qwen3 14BやDeepSeek R1 14BなどのQ4量子化モデルが快適に動作し、選択できるモデルの幅が大きく広がります。メモリ帯域幅は288GB/sと8GB版と同等ですが、モデルサイズに余裕があるため安定した推論が可能。価格差約$70で利用可能なモデル数が大幅に増えるため、予算に余裕があれば8GB版より確実にこちらがおすすめです。",
     notes: "16GBで中型モデルも対応可能",
   },
   {
@@ -39,6 +41,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$750-850",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "16GBのVRAMと672GB/sの高いメモリ帯域幅を持つ、Ada世代のアッパーミドルGPUです。RTX 4060 Ti 16GBと同じVRAM容量ですが、帯域幅が2倍以上あるため、トークン生成速度（tok/s）で大きな差が出ます。Qwen3 14B、DeepSeek R1 14B、Mistral 7Bなどが快適に動作し、推論速度も満足のいくレベル。ゲーミングと兼用しながらローカルLLMも高速に使いたいユーザーに最適です。",
     notes: "高帯域幅で推論速度が良好",
   },
   {
@@ -52,6 +55,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$1,600-2,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "Ada Lovelace世代のコンシューマ向け最上位GPU。24GBのGDDR6Xメモリと1,008GB/sの高帯域幅により、Qwen3 32BやDeepSeek R1 32BなどのQ4量子化モデルを快適に動作させることができます。ローカルLLMにおいて「1枚で最強」の座を長く保持してきた定番ハイエンドGPUです。NVLinkには非対応ですが、2枚構成でのテンソル並列（PCIe経由）も可能。消費電力450Wと高めのため、750W以上の電源ユニットが推奨されます。価格対性能比を考えると、本格的にローカルLLMに取り組む方にとって最もおすすめのGPUです。",
     notes: "前世代最強。70Bモデルも量子化で動作可能",
   },
   {
@@ -65,6 +69,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$550-650",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "Blackwellアーキテクチャを採用した新世代ミドルレンジGPU。最新のGDDR7メモリにより672GB/sの高帯域幅を実現し、前世代のRTX 4060 Ti（288GB/s）から大幅に高速化。推論速度では上位クラスに匹敵する性能を発揮します。ただしVRAMは12GBに留まるため、14B以上のモデルではQ4量子化でも窮屈になる場面があります。8Bクラスのモデルを高速に実行したい方や、ゲーミング兼用で最新世代のGPUが欲しい方に適しています。",
     notes: "GDDR7搭載の新世代。12GBが制約になる場面も",
   },
   {
@@ -78,6 +83,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$750-850",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "Blackwell世代の16GBミドルハイGPU。GDDR7メモリによる896GB/sの帯域幅は、前世代のRTX 4070 Ti Super（672GB/s）を33%上回り、推論速度に直結する大きな改善です。16GBのVRAMでQwen3 14B、DeepSeek R1 14B、Mistral Small 24BのQ4量子化などが快適に動作します。消費電力300Wは適度で、ゲーミングPCの電源でも対応可能。新世代の高速メモリと十分なVRAMを両立した、中型モデル運用のベストバランスGPUです。",
     notes: "帯域幅が大幅に向上。中型モデルに最適",
   },
   {
@@ -91,6 +97,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$1,000-1,200",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "Blackwell世代のハイパフォーマンス16GB GPU。960GB/sの帯域幅はRTX 4090（1,008GB/s）に迫る水準で、16GBクラスでは最速の推論速度を実現します。RTX 5070 Tiと同じ16GBのVRAMですが、帯域幅で約7%上回り、大きなバッチサイズでの処理や長いコンテキストでの推論で差が出ます。消費電力360Wと高めですが、その分の性能を確実に返してくれるパワフルなGPUです。16GB枠で最高の推論速度を求める方に。",
     notes: "高性能な16GB。帯域幅960GB/sで高速推論",
   },
   {
@@ -104,6 +111,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$2,000-2,500",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "Blackwell世代のコンシューマ向け最上位GPU。32GBのGDDR7メモリと1,792GB/sという圧倒的な帯域幅を搭載し、前世代RTX 4090（24GB/1,008GB/s）から大幅にスペックアップしました。32GBのVRAMにより、Qwen3 32BやDeepSeek R1 32BがQ8量子化でも動作し、Llama 3.3 70BのQ3量子化にも対応可能。推論速度もコンシューマGPUとして最速クラスで、プロフェッショナル用途にも十分耐えます。消費電力575Wと非常に高く、850W以上の電源ユニットが必須。価格は高額ですが、1枚で最大限の性能を求めるユーザーにとって最強の選択肢です。",
     notes: "コンシューマ最強。32GBで70Bモデルも余裕",
   },
   // NVIDIA Professional
@@ -118,6 +126,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$8,500",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "NVIDIAのBlackwell世代プロフェッショナル向け最上位ワークステーションGPU。96GBのGDDR7 ECCメモリと1,792GB/sの帯域幅により、Llama 3.3 70BをFP16でも動作させることができる驚異的なスペックを誇ります。24,064 CUDAコアによる高い演算性能で、推論速度も極めて高速。ECCメモリによりビット反転エラーのリスクがなく、企業のミッションクリティカルなAI推論に最適です。NVLink対応で2枚接続すれば192GBとなり、405Bクラスの超大規模モデルにも対応可能。3Dレンダリングやシミュレーションとの兼用もでき、AIとクリエイティブの両方を1台でこなすプロフェッショナルに最適です。",
     notes: "Blackwell世代のプロ向け最上位。96GB GDDR7で70B FP16も対応。24,064 CUDAコア",
   },
   {
@@ -131,6 +140,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$8,500-10,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "RTX PRO 6000のサーバー・データセンター向けバリアント。WS版と同じ96GB GDDR7 ECCメモリを搭載しつつ、パッシブ冷却（ファンレス）設計により、ラックマウントサーバーへの搭載に最適化されています。MIG（Multi-Instance GPU）に対応し、1枚のGPUを最大4つの独立したインスタンスに分割して、複数のモデルや複数のユーザーに同時にサービスを提供可能。L40Sの後継として、企業のAI推論サーバーの中核を担うGPUです。帯域幅はWS版（1,792GB/s）よりやや低い1,600GB/sですが、24時間365日の連続稼働に耐える高信頼性を備えています。",
     notes: "サーバー/データセンター向け。パッシブ冷却。L40Sの後継。MIG対応で最大4分割可能",
   },
   {
@@ -144,6 +154,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$6,800-7,500",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "Ada Lovelace世代のプロフェッショナル向けGPU。48GBのGDDR6メモリにより、Llama 3.3 70BのQ4量子化やQwen3 32BのQ8量子化など、コンシューマGPUでは難しい高品質な量子化レベルでのモデル実行が可能です。960GB/sの帯域幅で推論速度も良好。ISVの認証を受けた安定したドライバーが提供されており、CAD、3Dレンダリング、VFXなどのプロフェッショナルワークロードと並行してAI推論を行うことも可能。NVLink対応で2枚接続すれば96GBとなり、大型モデルにも余裕を持って対応できます。",
     notes: "プロフェッショナル向け48GB。70Bモデルの高品質量子化に対応",
   },
   {
@@ -157,6 +168,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$15,000-20,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "NVIDIAのデータセンター向けGPUの代名詞的存在。80GBのHBM2eメモリと2,039GB/sという超高帯域幅を持ち、大規模モデルの高速推論に最適です。Llama 3.3 70BをQ8量子化で快適に動作させ、Qwen3 235B-A22BもQ4で単体動作が可能。NVLink/NVSwitchによるマルチGPU接続で、8枚構成のDGX A100では640GBのメモリプールを形成し、671Bクラスの超大規模モデルにも対応。AI研究・MLOps・企業のAI基盤として世界中で広く採用されている実績のあるGPUです。消費電力300Wで効率にも優れています。",
     notes: "データセンター向け。HBM2eで高帯域幅",
   },
   {
@@ -170,6 +182,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$25,000-35,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "Hopper世代のNVIDIA最高峰データセンターGPU。80GBのHBM3メモリと3,350GB/sという圧倒的な帯域幅は、A100の約1.6倍の推論スループットを実現します。Transformer Engineによる混合精度演算に対応し、FP8でのモデル実行も可能。NVLink 4.0（900GB/s）による高速マルチGPU接続で、8枚構成のDGX H100では640GBのメモリプールを形成。大規模モデルのトレーニングにも推論にも使える万能GPUです。現在のAIデータセンターの標準的な選択肢であり、クラウドプロバイダー各社でも広く採用されています。",
     notes: "最高峰のHBM3帯域幅。大規模モデルの高速推論",
   },
   {
@@ -183,6 +196,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$30,000-40,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "H100の後継として登場したHopper世代の最大メモリモデル。141GBのHBM3eメモリと4,800GB/sの帯域幅は、単体GPUとして最高レベルのスペックです。この大容量メモリにより、Qwen3 235B-A22B（Q4: 130GB）を1枚で動作させることが可能で、DeepSeek V3 671BもQ4で3枚あれば対応可能。NVLink 4.0でのマルチGPU接続により、さらに大規模なモデルにもスケールできます。AIスーパーコンピューティングの最前線で使用されるハイエンドGPUで、研究機関や大企業のAI基盤に導入されています。",
     notes: "141GBのHBM3e。405Bクラスの大規模モデルに対応",
   },
   // AMD
@@ -197,6 +211,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$250-300",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "AMDのRDNA 3アーキテクチャを搭載したエントリーレベルGPU。8GBのGDDR6メモリで、NVIDIAのRTX 4060 Ti 8GBと同等のVRAM容量を持ちます。価格は$250-300とNVIDIA競合より安価で、コストを抑えてローカルLLMを始めたい方に魅力的な選択肢です。ただしAMD GPUでのLLM推論はROCm（AMDのCUDA相当）のサポート状況に注意が必要で、llama.cppのROCmバックエンドやOllamaのAMD対応を利用することになります。対応フレームワークが限られる場合がありますが、llama.cppとの組み合わせでは安定した動作が確認されています。",
     notes: "コスパ重視。ROCmのサポートに注意",
   },
   {
@@ -210,6 +225,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$900-1,000",
     multiGpuSupport: false,
     unifiedMemory: false,
+    description: "AMDのフラッグシップコンシューマGPU。24GBのGDDR6メモリと960GB/sの帯域幅は、RTX 4090（24GB/1,008GB/s）に匹敵するスペックで、価格は$900-1,000とRTX 4090の約半額という圧倒的なコスパを誇ります。Qwen3 32BやDeepSeek R1 32BのQ4量子化が快適に動作し、ローカルLLMの「24GBクラス」の選択肢としてNVIDIA以外を検討する価値があります。llama.cppとの相性が特に良く、ROCmバックエンドで安定した推論が可能。PyTorchやvLLMでの利用にはROCmの対応状況を確認する必要がありますが、llama.cpp/Ollama中心の利用であれば非常にコスパの高い選択肢です。",
     notes: "24GB VRAM。llama.cppとの相性良好",
   },
   // Apple Silicon
@@ -224,6 +240,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $2,000~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "Apple M3 Proチップ搭載のMacBook Pro向け構成。18GBの統合メモリ（ユニファイドメモリ）がCPUとGPUで共有されるため、VRAMとシステムRAMの区別なくモデルをロードできます。Qwen3 8BやDeepSeek R1 7BのQ4量子化が快適に動作。帯域幅150GB/sはGPU専用メモリと比較して控えめですが、省電力（TDP 30W）で静音動作するため、カフェや外出先でもローカルLLMを利用できる機動力が最大の魅力です。macOS上のOllamaとの親和性も高く、インストール後すぐにLLMを試せます。",
     notes: "統合メモリ。省電力だが帯域幅は控えめ",
   },
   {
@@ -237,6 +254,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $2,400~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M3 Proの36GBメモリ構成。18GB版と比較して2倍のメモリ容量により、Qwen3 14BやDeepSeek R1 14BのQ4量子化モデルも快適に動作します。Mistral Small 24B（Q4: 17GB推奨）なども余裕を持ってロード可能で、中型モデルの選択肢が大きく広がります。MacBook Proの携帯性と長時間バッテリー駆動を活かしながら、出先でも本格的なLLM推論ができる環境を構築できます。",
     notes: "36GBの統合メモリで中型モデルも対応",
   },
   {
@@ -250,6 +268,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $3,200~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M3 Maxの48GBメモリ構成。帯域幅300GB/sはM3 Pro（150GB/s）の2倍で、推論速度が大幅に向上します。48GBの統合メモリにより、Qwen3 32BやDeepSeek R1 32BのQ4量子化が動作可能で、Llama 3.3 70BのQ3量子化にも挑戦できるレベルです。MacBook Proとしての薄型軽量設計を維持しながら、プロフェッショナルレベルのAI推論能力を提供。映像制作やソフトウェア開発との並行作業にも余裕のあるスペックです。",
     notes: "48GBの統合メモリ。帯域幅300GB/s",
   },
   {
@@ -263,6 +282,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $4,000~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M3 Maxの最大メモリ構成。96GBの統合メモリにより、Llama 3.3 70BのQ8量子化やQwen3 235B-A22BのQ3量子化が動作可能で、RTX PRO 6000に匹敵するメモリ容量をラップトップで実現します。帯域幅300GB/sはGPU専用メモリには及びませんが、静音・省電力で24時間稼働させても快適。大型モデルをローカルで常時利用したいが、デスクトップPCを置くスペースがない環境に最適です。",
     notes: "96GBの大容量統合メモリ。70Bモデルも余裕",
   },
   {
@@ -276,6 +296,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "Mac Studio $4,800~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M3 Max搭載Mac Studio向けの128GBメモリ構成。統合メモリの最大容量で、Qwen3 235B-A22BのQ4量子化（130GB必要）にギリギリ対応できる容量です。デスクトップ型のMac Studioに搭載される構成で、常時接続・常時稼働のローカルLLMサーバーとして運用するのに最適。帯域幅300GB/sとGPU専用メモリほどの速度は出ませんが、静音設計と安定した長時間稼働が可能で、自宅やオフィスのAI推論専用機として非常に優秀です。",
     notes: "128GBで大規模モデルにも対応可能",
   },
   {
@@ -289,6 +310,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $2,000~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "Apple最新のM4世代Proチップ搭載。LPDDR5xメモリにアップグレードされ、帯域幅273GB/sはM3 Pro（150GB/s）から約82%向上しています。24GBの統合メモリでQwen3 8BやLlama 3.3 8Bが快適に動作し、Qwen3 14BのQ4量子化にも対応可能。M4世代のNeural Engineの強化により、機械学習タスク全般のパフォーマンスが向上しています。MacBook Proの最新エントリーモデルとして、コスパと性能のバランスに優れた選択肢です。",
     notes: "M4世代。帯域幅が改善",
   },
   {
@@ -302,6 +324,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $2,600~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M4 Proの48GBメモリ構成。24GB版と同じ273GB/sの帯域幅に加え、メモリ容量が倍増することで、Qwen3 32BやDeepSeek R1 32BのQ4量子化モデルが動作可能になります。MacBook Proの携帯性を維持しながら、32Bクラスの本格的なモデルを外出先でも利用できる点が魅力。ソフトウェア開発者がコーディング支援LLMをローカルで常に使いたい場合の最適解です。",
     notes: "48GBの統合メモリ。中〜大型モデルに対応",
   },
   {
@@ -315,6 +338,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $3,400~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M4 Maxチップの48GBメモリ構成。帯域幅546GB/sはM4 Pro（273GB/s）の2倍で、同じモデルでもトークン生成速度が大幅に向上します。48GBのメモリでQwen3 32BやDeepSeek R1 32BのQ4が快適に動作し、推論速度も非常に高速。M4 Proの48GB版と同容量ですが、帯域幅の差により推論速度で明確な優位性があります。高速な応答が求められるインタラクティブなAIアプリケーション開発に最適な構成です。",
     notes: "帯域幅546GB/sで高速推論",
   },
   {
@@ -328,6 +352,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "MacBook Pro $3,800~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M4 Maxの64GBメモリ構成。Llama 3.3 70BのQ4量子化（44GB推奨）が余裕を持って動作し、高速な546GB/sの帯域幅により快適な推論速度を実現します。MacBook Proとして持ち運びながら70Bクラスの大型モデルを利用できる、ポータビリティと性能の究極のバランスを提供します。AIリサーチャーやシニアエンジニアが、場所を選ばずに高性能なAI推論環境を持ち歩きたい場合に最適です。",
     notes: "64GBで70Bモデルの量子化版も快適",
   },
   {
@@ -341,6 +366,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "Mac Studio $5,000~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "M4 Max搭載Mac Studio向けの最大128GBメモリ構成。546GB/sの高帯域幅と128GBの大容量メモリにより、Llama 3.3 70BをQ8量子化でも快適に動作させ、Qwen3 235B-A22BのQ4にも対応可能です。M3 Max 128GB（300GB/s）と比較して帯域幅が82%向上しており、推論速度の改善が顕著。デスクトップ型Mac Studioに搭載すれば、静音・省電力で24時間稼働する高性能ローカルLLMサーバーとして理想的です。Apple Siliconの統合メモリアーキテクチャの真価を発揮するハイエンド構成です。",
     notes: "128GBの大容量。大規模モデルにも対応",
   },
   {
@@ -354,6 +380,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "Mac Studio $7,000~",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "Apple Siliconの最上位チップM3 Ultra搭載Mac Studio向け構成。192GBという圧倒的な統合メモリ容量と800GB/sの帯域幅により、DeepSeek V3 671BのQ3量子化やLlama 4 Maverick 400BのQ4量子化にも対応可能な、Mac史上最もパワフルなAI推論マシンです。M3 Maxの2チップ構成（ダイトゥダイ接続）のため、実質的に2つのチップが統合されており、GPU性能も最大76コア。静音設計と省電力（TDP 60W）で常時稼働に最適。超大規模モデルをファンレスで動作させたい場合の究極の選択肢です。",
     notes: "192GBの統合メモリ。405Bクラスの量子化版も可能",
   },
   // Dedicated AI Machines
@@ -368,6 +395,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$3,000-5,000",
     multiGpuSupport: true,
     unifiedMemory: true,
+    description: "NVIDIAが「デスクトップAIスーパーコンピュータ」として発表した専用AI推論マシン。Grace Blackwell GB10チップを搭載し、128GBのLPDDR5x統合メモリにより、Llama 3.3 70BのQ8量子化やNemotron 51BのFP16が動作可能です。Ubuntu Linuxベースで、Ollamaやllama.cppがプリインストール可能。NVLink ConnectXにより2台のDGX Sparkを接続して256GBのメモリプールを構成でき、405Bクラスの超大規模モデルにも対応できます。帯域幅273GB/sはGPU専用メモリ（RTX 4090: 1,008GB/s）と比較して低めのため、推論速度はやや控えめですが、$3,000-5,000という価格帯で128GBのAI専用機が手に入るのは画期的です。",
     notes: "GB10チップ搭載。128GB統合メモリ。帯域幅がGPUより低い点に注意",
   },
   {
@@ -381,6 +409,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$6,000-10,000",
     multiGpuSupport: true,
     unifiedMemory: true,
+    description: "2台のDGX SparkをNVLink ConnectXケーブルで接続したクラスタ構成。合計256GBの統合メモリにより、DeepSeek R1 70BのFP16（148GB）やQwen3 235B-A22BのQ8量子化（245GB）など、単体では困難な大規模モデルの実行が可能になります。NVLinkによるチップ間通信でメモリが一体化され、モデルの分割が自動的に処理されるため、ユーザーは通常のOllamaコマンドでそのまま大規模モデルを実行できます。2台で$6,000-10,000と、同等のVRAMを持つA100と比較して圧倒的に安価に構築できる点が最大の魅力です。",
     notes: "NVLink接続で256GB。405Bクラスの大規模モデルに対応",
   },
   {
@@ -394,6 +423,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$2,500-3,500",
     multiGpuSupport: false,
     unifiedMemory: true,
+    description: "FrameworkのモジュラーノートPCにAMD Ryzen AI Max 395+チップを搭載した構成。128GBのLPDDR5x統合メモリにより、DGX Sparkと同等のメモリ容量を持ちながら、ラップトップとして持ち運べる携帯性が最大の特徴です。AMDのRDNA 3.5 GPUアーキテクチャとXDNA 2 NPUを統合し、AI推論に最適化された設計。帯域幅256GB/sはDGX Spark（273GB/s）とほぼ同等で、Llama 3.3 70BのQ8量子化やNemotron 51BのFP16が動作可能です。ROCmベースの推論バックエンドを使用するため、llama.cppやOllamaのAMD対応が必要ですが、$2,500-3,500という価格帯で128GBのAI推論マシンが手に入るコスパの高さが魅力です。",
     notes: "AMD統合メモリ。128GBで大型モデル対応",
   },
   // Multi-GPU
@@ -408,6 +438,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$3,200-4,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "RTX 4090を2枚搭載したマルチGPU構成。合計48GBのVRAMと2,016GB/sの帯域幅（合算）により、Llama 3.3 70BのQ4量子化（44GB推奨）が動作可能になります。ただしRTX 4090はNVLinkに非対応のため、GPU間通信はPCIe経由となり、テンソル並列の効率は限定的です。llama.cppのテンソル並列機能を使えば2枚にモデルを分割して実行できますが、1枚構成と比較して追加のレイテンシが発生します。2枚分の消費電力（900W）と冷却要件も考慮する必要がありますが、コンシューマGPUで48GBのVRAMを確保できる実用的な構成です。",
     notes: "NVLink非対応。テンソル並列はPCIe経由",
   },
   {
@@ -421,6 +452,7 @@ export const hardwareList: Hardware[] = [
     priceRange: "$4,000-5,000",
     multiGpuSupport: true,
     unifiedMemory: false,
+    description: "RTX 5090を2枚搭載したマルチGPU構成。合計64GBのGDDR7メモリと3,584GB/sの帯域幅（合算）により、Llama 3.3 70BのQ8量子化（76GB推奨）やQwen3 32BのFP16（69GB推奨）が動作可能です。RTX 5090はNVLinkに非対応ですが、PCIe 5.0経由のテンソル並列により、前世代の2× RTX 4090よりも効率的なGPU間通信が可能。消費電力は合計1,150Wと非常に高く、1,200W以上の電源ユニットが必須ですが、コンシューマGPUで64GBのVRAMと超高帯域幅を確保できる最強の自作PC構成です。",
     notes: "64GBの合計VRAM。70Bモデルも高品質で動作",
   },
 ];
