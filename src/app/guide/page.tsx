@@ -10,6 +10,18 @@ export default function GuidePage() {
         初めての方はまず「共通の基礎知識」を読んでから、お使いの環境に合ったセクションに進んでください。
       </p>
 
+      {/* Advanced guide link */}
+      <Link
+        href="/guide/advanced"
+        className="block bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-5 mb-10 hover:shadow-md transition-shadow"
+      >
+        <div className="text-sm font-medium text-blue-600 mb-1">応用ガイド</div>
+        <div className="text-base font-bold text-gray-900">RAG・MCP・データベース連携ガイド</div>
+        <div className="text-sm text-gray-500 mt-1">
+          社内データの学習（RAG）、Oracle / SQL Server へのMCP接続、社内AI基盤の構成例を解説
+        </div>
+      </Link>
+
       {/* Table of contents */}
       <nav className="bg-white rounded-xl border border-gray-200 p-6 mb-10">
         <h2 className="text-lg font-bold text-gray-900 mb-3">目次</h2>
